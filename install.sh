@@ -13,5 +13,6 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install flask
 
-# Lancer l'API avec npm
+# Lancer l'API avec npm et installer les dépendances
+npm install
 npm run api
