@@ -1,9 +1,13 @@
-import React from "react";
+import React from "react"
 
 export default function LoginForm() {
   return (
     <div className="flex items-center justify-center">
-      <form className="bg-white p-6 rounded shadow-md w-80 flex flex-col gap-4" action="/login" method="POST">
+      <form
+        className="bg-white p-6 rounded shadow-md w-80 flex flex-col gap-4"
+        action="/login"
+        method="POST"
+      >
         <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
 
         <label className="flex flex-col text-sm text-gray-800">
@@ -11,6 +15,7 @@ export default function LoginForm() {
           <input
             type="email"
             name="email"
+            ip="email"
             required
             className="mt-1 p-2 border border-gray-400 rounded bg-gray-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
@@ -21,6 +26,7 @@ export default function LoginForm() {
           <input
             type="password"
             name="password"
+            id="id"
             required
             className="mt-1 p-2 border border-gray-400 rounded bg-gray-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
@@ -34,5 +40,5 @@ export default function LoginForm() {
         </button>
       </form>
     </div>
-  );
+  )
 }

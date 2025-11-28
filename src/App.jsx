@@ -9,12 +9,12 @@ function App() {
     <BrowserRouter>
     {/* Navigation temporaire, vers la page racine "/" et La page "./pages/Page_Teste.jsx" */}
       <nav>
-        <Link to="/">Home</Link> | <Link to="/Login">Login</Link>
+        <Link to="/">Home</Link> | <Link to="/login_form">Login</Link>
       </nav>
 
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/Login" element={<Login/>} />
+        <Route path="/login_form" element={<Login/>} />
       </Routes>
     </BrowserRouter>
   );
