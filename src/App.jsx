@@ -1,27 +1,20 @@
-import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from './pages/Home.jsx';
-import Teste from './pages/Page_Teste.jsx';
+import Login from './pages/Login.jsx';
+import "./static/App.css";
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
-
-  useEffect(() => {
-    fetch("/api/time")
-      .then(res => res.json())
-      .then(data => setCurrentTime(data.time));
-  }, []);
 
   return (
     <BrowserRouter>
     {/* Navigation temporaire, vers la page racine "/" et La page "./pages/Page_Teste.jsx" */}
       <nav>
-        <Link to="/">Home</Link> | <Link to="/Teste">Page Teste</Link>
+        <Link to="/">Home</Link> | <Link to="/Login">Login</Link>
       </nav>
 
-      <Routes> 188.114.97.2
-        <Route path="/" element={<Home currentTime={currentTime} />} />
-        <Route path="/Teste" element={<Teste />} />
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/Login" element={<Login/>} />
       </Routes>
     </BrowserRouter>
   );
