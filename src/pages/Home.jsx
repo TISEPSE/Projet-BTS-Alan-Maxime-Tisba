@@ -1,4 +1,4 @@
-import "../App.css";
+import "../static/index.css";
 
 const Home = ({ currentTime }) => {
   return (

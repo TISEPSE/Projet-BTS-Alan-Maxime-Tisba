@@ -1,5 +1,5 @@
 if (!(Test-Path "venv")) {
-    Write-Host "Création du virtualenv..."
+    Write-Host "Creation du virtualenv..."
     python -m venv venv
 }
 

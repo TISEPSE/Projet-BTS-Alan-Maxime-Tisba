@@ -19,7 +19,7 @@ function App() {
         <Link to="/">Home</Link> | <Link to="/Teste">Page Teste</Link>
       </nav>
 
-      <Routes>
+      <Routes> 188.114.97.2
         <Route path="/" element={<Home currentTime={currentTime} />} />
         <Route path="/Teste" element={<Teste />} />
       </Routes>

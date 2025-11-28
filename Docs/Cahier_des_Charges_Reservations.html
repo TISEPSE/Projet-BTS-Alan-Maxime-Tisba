@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cahier des Charges - Application de Réservations</title>
+  <style>
+    @page { margin: 2cm; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1 {
+      color: #2563eb;
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 10px;
+      margin-top: 30px;
+    }
+    h2 {
+      color: #1e40af;
+      margin-top: 25px;
+      border-left: 4px solid #2563eb;
+      padding-left: 15px;
+    }
+    h3 {
+      color: #1e3a8a;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #2563eb;
+      color: white;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    ul, ol {
+      margin: 10px 0;
+      padding-left: 30px;
+    }
+    li {
+      margin: 5px 0;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .code-block {
+      background: #f1f5f9;
+      border-left: 4px solid #2563eb;
+      padding: 15px;
+      margin: 15px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9em;
+    }
+    .highlight {
+      background-color: #fef3c7;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      border-radius: 8px;
+    }
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 2px solid #e5e7eb;
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1 style="border: none; color: white; margin: 0;">CAHIER DES CHARGES PROFESSIONNEL</h1>
+    <p style="margin: 10px 0 0 0; font-size: 1.2em;">Application Web de Gestion de Réservations</p>
+  </div>
+
+  <div class="section">
+    <h2>1. Présentation du projet</h2>
+    
+    <h3>1.1 Contexte</h3>
+    <p>Les petits salons, coachs indépendants et artisans gèrent souvent leurs rendez-vous de manière artisanale (agenda papier, SMS, téléphone, messageries diverses).</p>
+    <p>Cette organisation entraîne :</p>
+    <ul>
+      <li>des erreurs de planning (surbooking, créneaux oubliés),</li>
+      <li>une perte de temps dans les échanges,</li>
+      <li>une image peu professionnelle,</li>
+      <li>peu ou pas d'automatisation.</li>
+    </ul>
+
+    <h3>1.2 Objectif général</h3>
+    <p>Développer une application web simple permettant :</p>
+    <ul>
+      <li>la publication en ligne de créneaux disponibles,</li>
+      <li>la prise de rendez-vous via un lien public,</li>
+      <li>l'enregistrement et la gestion centralisée des réservations,</li>
+      <li>l'envoi automatisé d'e-mails de confirmation et d'annulation,</li>
+      <li>une accessibilité pour des utilisateurs non techniques.</li>
+    </ul>
+    
+    <h3>1.3 Public cible</h3>
+    <ul>
+      <li>Petits salons et indépendants</li>
+      <li>Coachs</li>
+      <li>Artisans</li>
+      <li>Micro-entrepreneurs</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. Périmètre fonctionnel</h2>
+    
+    <h3>2.1 Acteurs</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Acteur</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Administrateur professionnel</td>
+          <td>Gère planning, prestations, réservations</td>
+        </tr>
+        <tr>
+          <td>Client final</td>
+          <td>Prend un rendez-vous via lien public</td>
+        </tr>
+        <tr>
+          <td>Administrateur technique (optionnel)</td>
+          <td>Paramétrage global du système</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2.2 Fonctionnalités principales</h3>
+    <ul>
+      <li>Gestion de comptes professionnels (création, connexion, modification)</li>
+      <li>Gestion des créneaux de réservation</li>
+      <li>Gestion des prestations (types, durée, tarif optionnel)</li>
+      <li>Prise de rendez-vous via lien public unique</li>
+      <li>Emails automatiques de confirmation / annulation</li>
+      <li>Gestion des réservations (filtrage, statut, historique)</li>
+      <li>Rappels automatiques (optionnel)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Scénarios d'usage</h2>
+    
+    <h3>Scénario 1 : Création d'un compte pro</h3>
+    <ol>
+      <li>Le professionnel crée son compte (nom activité, email, mot de passe).</li>
+      <li>Accès au tableau de bord.</li>
+      <li>Possibilité de modifier ses données.</li>
+    </ol>
+
+    <h3>Scénario 2 : Paramétrage du calendrier</h3>
+    <ol>
+      <li>Définition des horaires d'ouverture par jour.</li>
+      <li>Choix de la durée des créneaux (30 min, 1h, etc.).</li>
+      <li>Génération automatique des créneaux disponibles.</li>
+      <li>Blocage de créneaux spécifiques si nécessaire.</li>
+    </ol>
+
+    <h3>Scénario 3 : Réservation par un client</h3>
+    <ol>
+      <li>Consultation des créneaux disponibles via lien public.</li>
+      <li>Sélection d'un créneau.</li>
+      <li>Saisie du formulaire (nom, email, téléphone optionnel, notes).</li>
+      <li>Validation et vérification serveur de la disponibilité.</li>
+      <li>Enregistrement et envoi e-mail de confirmation.</li>
+    </ol>
+
+    <h3>Scénario 4 : Annulation</h3>
+    <ol>
+      <li>Le professionnel annule une réservation.</li>
+      <li>Statut mis à jour en base de données.</li>
+      <li>Envoi automatique d'un e-mail d'annulation.</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>4. Exigences non fonctionnelles</h2>
+    
+    <h3>4.1 UX & Accessibilité</h3>
+    <ul>
+      <li>Interface responsive (PC / tablette / smartphone)</li>
+      <li>Navigation intuitive</li>
+      <li>Formulaires avec validation client et serveur</li>
+    </ul>
+
+    <h3>4.2 Performance</h3>
+    <ul>
+      <li>Chargement du calendrier < 2 secondes en conditions normales</li>
+      <li>Requêtes optimisées (indexation sur dates)</li>
+    </ul>
+
+    <h3>4.3 Sécurité</h3>
+    <ul>
+      <li>Hachage des mots de passe (bcrypt)</li>
+      <li>Sessions sécurisées (token + expiration)</li>
+      <li>Validation stricte des données entrantes</li>
+      <li>Isolation des données par professionnel</li>
+    </ul>
+
+    <h3>4.4 RGPD</h3>
+    <ul>
+      <li>Suppression des données sur demande</li>
+      <li>Anonymisation possible</li>
+      <li>Mention légale de collecte des données</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Modèle de données (simplifié)</h2>
+    
+    <h3>Tables principales</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Table</th>
+          <th>Contenu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UtilisateurPro</td>
+          <td>Identité, credentials, slug public</td>
+        </tr>
+        <tr>
+          <td>Prestation</td>
+          <td>Types de prestations</td>
+        </tr>
+        <tr>
+          <td>Creneau</td>
+          <td>Créneaux libres / occupés / bloqués</td>
+        </tr>
+        <tr>
+          <td>Reservation</td>
+          <td>Infos client, statut, timestamps</td>
+        </tr>
+        <tr>
+          <td>LogEmail</td>
+          <td>Suivi des envois / erreurs</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Structure détaillée</h3>
+    <div class="code-block">
+      <strong>UtilisateurPro</strong>(idPro, nomActivite, nomResponsable, email, motDePasseHash, slugPublic)<br><br>
+      <strong>Prestation</strong>(idPrestation, idPro, libelle, dureeMinutes, tarif)<br><br>
+      <strong>Creneau</strong>(idCreneau, idPro, dateHeureDebut, dateHeureFin, statut)<br><br>
+      <strong>Reservation</strong>(idReservation, idPro, idPrestation, nomClient, emailClient, telephoneClient, commentaireClient, statut, dateCreation)<br><br>
+      <strong>LogEmail</strong>(idLog, idReservation, typeEmail, dateEnvoi, statutEnvoi)
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Livrables attendus</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Livrable</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Application fonctionnelle</td>
+          <td>Backend + frontend responsive</td>
+        </tr>
+        <tr>
+          <td>Base de données</td>
+          <td>Modèle relationnel complet</td>
+        </tr>
+        <tr>
+          <td>Documentation utilisateur</td>
+          <td>Guide d'utilisation</td>
+        </tr>
+        <tr>
+          <td>README technique</td>
+          <td>Installation, configuration, lancement</td>
+        </tr>
+        <tr>
+          <td>Jeu de données test</td>
+          <td>Pour démonstration</td>
+        </tr>
+        <tr>
+          <td>Rapport de tests</td>
+          <td>Fonctionnels et qualité</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>7. Contraintes et risques</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Élément</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Technique</td>
+          <td>Hébergement simple type mutualisé / SQL</td>
+        </tr>
+        <tr>
+          <td>Sécurité</td>
+          <td>Respect RGPD</td>
+        </tr>
+        <tr>
+          <td>Planning</td>
+          <td>Délais dépendants du besoin métier</td>
+        </tr>
+        <tr>
+          <td>Risques</td>
+          <td>Non-adoption si interface trop complexe</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>8. Conclusion</h2>
+    <p>Ce projet vise à fournir une solution simple, professionnelle et accessible pour la gestion des rendez-vous, destinée aux indépendants ayant besoin d'un outil fiable mais léger et rapide à prendre en main.</p>
+  </div>
+
+  <div class="footer">
+    <p>Document généré le 24 novembre 2025</p>
+  </div>
+</body>
+</html>
