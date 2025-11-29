@@ -47,7 +47,6 @@ export default function Forgot_password() {
             </button>
           </form>
 
-          {/* Section liens supplémentaires */}
           <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
             <div className="text-center">
               <a 
