@@ -110,6 +110,20 @@ export default function Login() {
               </svg>
               Se connecter avec google
             </button>
+            {/* Section liens supplémentaires */}
+          <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
+            <div className="text-center">
+              <a 
+                href="/" 
+                className="text-indigo-600 hover:text-indigo-500 font-medium inline-flex items-center gap-1"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                Retour à l'accueil
+              </a>
+            </div>
+          </div>
           </div>
         </div>
       </div>
