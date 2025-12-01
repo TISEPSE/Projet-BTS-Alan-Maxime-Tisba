@@ -21,7 +21,7 @@ export default function RoleSelectionPage() {
         <div className="space-y-4">
           {/* Particulier - Lien vers inscription particulier */}
           <a
-            href="/register_form" // Lien vers le formulaire d'inscription particulier
+            href="/register_form_user" // Lien vers le formulaire d'inscription particulier
             className="w-full bg-white p-6 rounded-xl border border-gray-200 
                        shadow-sm hover:shadow-md hover:border-indigo-400 
                        transition-all duration-200 text-left group block"
@@ -44,15 +44,15 @@ export default function RoleSelectionPage() {
 
           {/* Professionnel - Lien vers inscription professionnel */}
           <a
-            href="/register-form" // Lien vers le formulaire d'inscription professionnel
+            href="/register_form_pro" // Lien vers le formulaire d'inscription professionnel
             className="w-full bg-white p-6 rounded-xl border border-gray-200 
-                       shadow-sm hover:shadow-md hover:border-indigo-400 
+                       shadow-sm hover:shadow-md hover:border-blue-400 
                        transition-all duration-200 text-left group block"
           >
             <div className="flex items-center space-x-4">
               <div
-                className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center 
-                            group-hover:bg-indigo-200 transition-colors"
+                className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center 
+                            group-hover:bg-blue-200 transition-colors"
               >
                 <BuildingOffice2Icon className="w-6 h-6 text-blue-600" />
               </div>
@@ -66,17 +66,17 @@ export default function RoleSelectionPage() {
           </a>
         </div>
 
-        {/* Lien de connexion */}
+        {/* Lien de retour à l'accueil */}
         <div className="text-center mt-6">
-          <p className="text-gray-600">
-            Déjà un compte ?{" "}
-            <a
-              href="/login"
-              className="text-indigo-600 hover:text-indigo-500 font-medium hover:underline"
-            >
-              Se connecter
-            </a>
-          </p>
+          <a
+            href="/"
+            className="text-indigo-600 hover:text-indigo-500 font-medium hover:underline inline-flex items-center gap-1"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour à l'accueil
+          </a>
         </div>
       </div>
     </div>

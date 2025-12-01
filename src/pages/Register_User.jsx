@@ -1,14 +1,23 @@
-import React from 'react';
+import { CalendarDaysIcon, UserIcon } from "@heroicons/react/24/outline"
 
 export default function UserRegistrationForm() {
   return (
     <main className="w-full min-h-screen flex items-center justify-center bg-gray-50 p-4">
       <div className="w-full space-y-6 text-gray-600 sm:max-w-md">
         <div className="text-center">
-          <div className="mt-5 space-y-2">
-            <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
-              Créer un compte
-            </h3>
+          <div className="mt-5 space-y-4">
+            {/* Logo et titre avec icône */}
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center">
+                <UserIcon className="w-7 h-7 text-indigo-600" />
+              </div>
+              <div>
+                <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
+                  Créer un compte client
+                </h3>
+              </div>
+            </div>
+            
             <p>
               Déjà un compte ?{" "}
               <a
@@ -180,13 +189,13 @@ export default function UserRegistrationForm() {
             <div className="mt-6 pt-6 border-t border-gray-200 space-y-3">
               <div className="text-center">
                 <a 
-                  href="/" 
+                  href="/register_choice" 
                   className="text-indigo-600 hover:text-indigo-500 font-medium inline-flex items-center gap-1"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                   </svg>
-                  Retour à l'accueil
+                  Retour en arrière
                 </a>
               </div>
             </div>
