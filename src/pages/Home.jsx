@@ -1,15 +1,17 @@
+import {CalendarDaysIcon} from "@heroicons/react/24/outline"
+
 export default function Home() {
   return (
     <div>
       <nav className="relative items-center pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 md:flex md:space-x-6">
         <div className="flex justify-between items-center w-full">
           <a href="#" className="mr-6">
-            <img
-              src="/public/bbc-seeklogo.png"
-              width="120"
-              height="50"
-              alt="Book By Click logo"
-            />
+            <div className="flex items-center space-x-2">
+              <CalendarDaysIcon className="w-8 h-8 text-indigo-600 " />
+              <span className="text-xl font-bold text-gray-900">
+                Book By Click
+              </span>
+            </div>
           </a>
           <div className="flex-1 flex justify-center">
             <ul className="flex space-x-6">
@@ -128,7 +130,7 @@ export default function Home() {
                 Se connecter
               </a>
               <a
-                href="register_form"
+                href="register_choice"
                 className="flex items-center justify-center gap-x-2 py-3 px-6 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex hover:border-indigo-300 transition-all"
               >
                 Créer un compte
