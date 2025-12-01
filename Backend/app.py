@@ -18,7 +18,7 @@ def login_Form():
     email = request.form.get("email")
     password = request.form.get("password")
     print(f"La page de Login à récupérer => Email: {email}, Password: {password}", flush=True)
-    return "OK"
+    return "{Résulat: " + email + ", password: " + password + "}"
 
 if __name__ == "__main__":
     app.run(port=5000)
