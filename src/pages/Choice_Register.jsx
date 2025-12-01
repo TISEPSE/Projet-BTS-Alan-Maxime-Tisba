@@ -36,7 +36,7 @@ export default function RoleSelectionPage() {
               <div>
                 <h3 className="font-bold text-gray-900">Particulier</h3>
                 <p className="text-sm text-gray-600">
-                  Pour vos réservations personnelles
+                  Pour gérer vos réservations personnelles
                 </p>
               </div>
             </div>
@@ -59,7 +59,7 @@ export default function RoleSelectionPage() {
               <div>
                 <h3 className="font-bold text-gray-900">Professionnel</h3>
                 <p className="text-sm text-gray-600">
-                  Pour gérer votre entreprise
+                  Pour gérer les réservation de votre entreprise
                 </p>
               </div>
             </div>
