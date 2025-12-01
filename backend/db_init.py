@@ -30,6 +30,7 @@ class Utilisateur(db.Model):
     motDePasseHash = db.Column(db.String(), nullable=False)
     telephone = db.Column(db.String(), nullable=False)
     dateInscription = db.Column(db.DateTime, nullable=False)
+    
 
     entreprises = db.relationship('Entreprise', backref='gerant')
     reservations = db.relationship('Reservation', backref='client')
