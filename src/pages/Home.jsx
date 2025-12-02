@@ -131,22 +131,14 @@ export default function Home() {
               </a>
               <a
                 href="register_choice"
-                className="group flex items-center justify-center gap-x-2 py-3 px-6 font-medium transition-all duration-300 
-             text-gray-700 bg-white border border-gray-300 rounded-lg hover:text-white 
-             hover:bg-gradient-to-r hover:from-indigo-500 hover:to-indigo-600 
-             hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-200/40 
-             active:scale-95 md:inline-flex"
+                className="flex items-center justify-center gap-x-2 py-3 px-6 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex hover:border-indigo-300 transition-all"
               >
-                <span className="relative">
-                  Créer un compte
-                  {/* Soulignement animé au hover */}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full" />
-                </span>
+                Créer un compte
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110"
+                  className="w-5 h-5"
                 >
                   <path
                     fillRule="evenodd"
