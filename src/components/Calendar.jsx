@@ -2,51 +2,10 @@
 
 import {useState, useMemo} from "react"
 import {Calendar as BigCalendar, dateFnsLocalizer} from "react-big-calendar"
-import {
-  format,
-  parse,
-  startOfWeek,
-  getDay,
-  addMonths,
-  subMonths,
-} from "date-fns"
+import {format, parse, startOfWeek, getDay, addMonths, subMonths} from "date-fns"
 import {fr} from "date-fns/locale"
 import {ChevronLeft, ChevronRight} from "lucide-react"
 import "react-big-calendar/lib/css/react-big-calendar.css"
-
-const calendarStyles = `
-  .rbc-month-view {
-    height: 100%;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .rbc-month-row {
-    min-height: 180px;
-  }
-  .rbc-date-cell {
-    padding: 10px;
-  }
-  .rbc-header {
-    padding: 12px 6px !important;
-    color : #717680 !important;
-  }
-  .rbc-day-bg {
-    background-color: white;
-  }
-  .rbc-now .rbc-button-link {
-    background-color: #6366f1;
-    color: white;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .rbc-off-range-bg {
-    background-color: #f3f4f6 !important;
-  }
-`
 
 const messages = {
   allDay: "Toute la journée",
@@ -105,8 +64,6 @@ export default function Calendar() {
   const eventStyleGetter = event => ({
     style: {
       backgroundColor: event.color,
-      borderRadius: "6px",
-      border: "none",
       color: "white",
       padding: "4px 8px",
       fontSize: "12px",
@@ -115,13 +72,9 @@ export default function Calendar() {
 
   return (
     <>
-      <style jsx global>
-        {calendarStyles}
-      </style>
-
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-gray-900">
+          <h2 className="text-xl font-semibold text-gray-900 capitalize">
             {format(date, "MMMM yyyy", {locale: fr})}
           </h2>
           <p className="text-sm text-gray-500 mt-1">

@@ -1,5 +1,52 @@
 @import "tailwindcss";
 
-input{
+input {
   color: black;
+}
+
+/* Style de la page Calendrier */
+
+/* Vue Mois */
+.rbc-month-view {
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rbc-month-row {
+  min-height: 180px;
+}
+
+.rbc-date-cell {
+  padding: 10px;
+}
+
+.rbc-header {
+  padding: 12px 6px !important;
+  color: #717680 !important;
+}
+
+.rbc-day-bg {
+  background-color: white;
+}
+
+.rbc-now .rbc-button-link {
+  background-color: #6366f1;
+  color: white;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rbc-off-range-bg {
+  background-color: #f3f4f6 !important;
+}
+
+/* Événements vue mois */
+.rbc-event {
+  border-radius: 6px;
+  border: none;
 }
