@@ -1,13 +1,13 @@
+import Calendar from "../../../components/Calendar"
+
 const CalendarContent = () => {
   return (
-    <div>
-      <div className="bg-white p-6 rounded-lg shadow">
-        <p>Voici votre calendrier des rendez-vous.</p>
-        <div className="mt-4 h-64 border-2 border-dashed border-gray-300 rounded flex items-center justify-center">
-          <p className="text-gray-500">Calendrier ici</p>
-        </div>
-      </div>
+    <div className="bg-white p-6 rounded-lg shadow">
+      <h1 className="text-2xl font-bold text-gray-900 mb-2">Calendrier des rendez-vous</h1>
+      <p className="text-gray-600 mb-6">Gérez vos événements et réservations</p>
+      <Calendar />
     </div>
   )
 }
+
 export default CalendarContent

@@ -1,101 +1,143 @@
-import { CalendarDaysIcon } from "@heroicons/react/24/outline"
+"use client"
 
-export default function Header({ activeSection, setActiveSection }) {
+import { useState } from 'react'
+import { Calendar as BigCalendar, dateFnsLocalizer } from 'react-big-calendar'
+import { format, parse, startOfWeek, getDay, addHours } from 'date-fns'
+import { fr } from 'date-fns/locale'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import "react-big-calendar/lib/css/react-big-calendar.css"
+
+// Localiser pour le français
+const localizer = dateFnsLocalizer({
+  format,
+  parse,
+  startOfWeek: () => startOfWeek(new Date(), { locale: fr }),
+  getDay,
+  locales: { fr },
+})
+
+// Composant Event personnalisé
+const EventComponent = ({ event }) => (
+  <div className="flex flex-col p-1 h-full">
+    <span className="font-medium text-xs text-gray-900">{event.title}</span>
+    {event.time && <span className="text-xs text-gray-600">{event.time}</span>}
+  </div>
+)
+
+export default function Calendar() {
+  const [date, setDate] = useState(new Date())
+
+  // Événements avec couleurs
+  const events = [
+    {
+      id: 1,
+      title: "Marketing site kickoff",
+      start: new Date(2025, 0, 15, 14, 30),
+      end: new Date(2025, 0, 15, 16, 0),
+      time: "2:30 PM",
+      color: "#6366f1" // indigo-600
+    },
+    {
+      id: 2,
+      title: "One-on-one w/ Eva",
+      start: new Date(2025, 0, 20, 10, 0),
+      end: new Date(2025, 0, 20, 11, 0),
+      time: "10:00 AM",
+      color: "#8b5cf6" // violet-500
+    },
+    {
+      id: 3,
+      title: "Lunch with Olivia",
+      start: new Date(2025, 0, 22, 12, 0),
+      end: new Date(2025, 0, 22, 13, 30),
+      time: "12:00 PM",
+      color: "#10b981" // emerald-500
+    }
+  ]
+
+  const eventStyleGetter = (event) => ({
+    style: {
+      backgroundColor: event.color,
+      borderRadius: '6px',
+      border: 'none',
+      color: 'white',
+      padding: '4px 8px',
+      fontSize: '12px'
+    }
+  })
+
   return (
-    <header className="text-base lg:text-sm bg-white border-b border-gray-200">
-      <div className="items-center gap-x-14 px-4 max-w-screen-xl mx-auto lg:flex lg:px-8">
-        <div className="flex items-center justify-between py-3 lg:py-5">
-          <div className="flex items-center space-x-2">
-            <CalendarDaysIcon className="w-8 h-8 text-indigo-600" />
-            <a href="/" className="text-xl font-bold text-gray-900">
-              Book By Click
-            </a>
-          </div>
-          <div className="lg:hidden">
-            <button className="text-gray-500 hover:text-gray-800 p-2" aria-label="Open menu">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                <path
-                  fillRule="evenodd"
-                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm8.25 5.25a.75.75 0 01.75-.75h8.25a.75.75 0 010 1.5H12a.75.75 0 01-.75-.75z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          </div>
+    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 max-w-6xl mx-auto">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h2 className="text-xl font-semibold text-gray-900">
+            {format(date, 'MMMM yyyy', { locale: fr })}
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">
+            Semaine {format(date, 'w', { locale: fr })}
+          </p>
         </div>
-
-        <div className="nav-menu flex-1 pb-28 mt-8 overflow-y-auto max-h-screen hidden lg:block lg:overflow-visible lg:pb-0 lg:mt-0">
-          <ul className="items-center space-y-6 lg:flex lg:space-x-6 lg:space-y-0">
-            <li className="flex-1 items-center justify-start pb-4 lg:flex lg:pb-0">
-              <div className="flex items-center gap-2 px-3 border border-gray-200 rounded-lg bg-gray-50 focus-within:bg-white focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-indigo-500 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="w-full px-2 py-2 text-gray-700 bg-transparent rounded-md outline-none placeholder:text-gray-400"
-                />
-              </div>
-            </li>
-
-            <li>
-              <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-semibold">
-                A
-              </div>
-            </li>
-          </ul>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setDate(new Date(date.getFullYear(), date.getMonth() - 1))}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5 text-gray-600" />
+          </button>
+          <button
+            onClick={() => setDate(new Date())}
+            className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            Aujourd'hui
+          </button>
+          <button
+            onClick={() => setDate(new Date(date.getFullYear(), date.getMonth() + 1))}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            <ChevronRight className="w-5 h-5 text-gray-600" />
+          </button>
         </div>
       </div>
 
-      <nav className="border-gray-100">
-        <ul className="flex items-center gap-x-3 max-w-screen-xl mx-auto px-4 overflow-x-auto lg:px-8">
-          <li className={`py-1 ${activeSection === "dashboard" ? "border-b-2 border-indigo-600" : ""}`}>
-            <a
-              onClick={() => setActiveSection && setActiveSection("dashboard")}
-              className="block py-2 px-3 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 duration-150 cursor-pointer"
-            >
-              Tableau de bord
-            </a>
-          </li>
+      {/* Calendar */}
+      <div className="h-96">
+        <BigCalendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          date={date}
+          onNavigate={setDate}
+          view="month"
+          views={['month', 'week', 'day']}
+          components={{
+            event: EventComponent,
+            toolbar: () => null, // On masque la toolbar par défaut
+          }}
+          eventPropGetter={eventStyleGetter}
+          style={{ height: '100%' }}
+        />
+      </div>
 
-          <li className={`py-1 ${activeSection === "calendar" ? "border-b-2 border-indigo-600" : ""}`}>
-            <a
-              onClick={() => setActiveSection && setActiveSection("calendar")}
-              className="block py-2 px-3 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 duration-150 cursor-pointer"
-            >
-              Calendrier
-            </a>
-          </li>
-
-          <li className={`py-1 ${activeSection === "reservations" ? "border-b-2 border-indigo-600" : ""}`}>
-            <a
-              onClick={() => setActiveSection && setActiveSection("reservations")}
-              className="block py-2 px-3 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 duration-150 cursor-pointer"
-            >
-              Réservations
-            </a>
-          </li>
-
-          <li className={`py-1 ${activeSection === "clients" ? "border-b-2 border-indigo-600" : ""}`}>
-            <a
-              onClick={() => setActiveSection && setActiveSection("clients")}
-              className="block py-2 px-3 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 duration-150 cursor-pointer"
-            >
-              Clients
-            </a>
-          </li>
-
-          <li className={`py-1 ${activeSection === "statistics" ? "border-b-2 border-indigo-600" : ""}`}>
-            <a
-              onClick={() => setActiveSection && setActiveSection("statistics")}
-              className="block py-2 px-3 rounded-lg text-gray-700 hover:text-gray-900 hover:bg-gray-100 duration-150 cursor-pointer"
-            >
-              Statistiques
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+      {/* Légende */}
+      <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+        <h3 className="text-sm font-medium text-gray-900 mb-3">Légende</h3>
+        <div className="flex gap-4 flex-wrap">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-indigo-600 rounded-full"></div>
+            <span className="text-xs text-gray-600">Réunion</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-violet-500 rounded-full"></div>
+            <span className="text-xs text-gray-600">Entretien</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+            <span className="text-xs text-gray-600">Repas</span>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
