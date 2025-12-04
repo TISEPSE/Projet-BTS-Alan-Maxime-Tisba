@@ -19,6 +19,9 @@ def create_app():
     with app.app_context():
         db.create_all()
 
+    
+    import seed 
+
     # récupérer les informations du formulaire quand il POST sur l'endpoint /register_form
     @app.route("/register_form", methods=["POST"])
     def register_form():
