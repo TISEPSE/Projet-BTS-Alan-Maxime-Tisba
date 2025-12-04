@@ -22,14 +22,15 @@ const Dashboard_entreprises = () => {
   
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* MODIF IMPORTANTE : passer activeSection ET setActiveSection */}
-      <Header 
+      <Header
         activeSection={activeSection}
-        setActiveSection={setActiveSection} 
+        setActiveSection={setActiveSection}
       />
-      
-      <main className="max-w-screen-xl mx-auto px-4 py-8">
-        {renderContent()}
+
+      <main className="w-full mx-auto px-6 py-8">
+        <div className="max-w-7xl mx-auto">
+          {renderContent()}
+        </div>
       </main>
     </div>
   )
