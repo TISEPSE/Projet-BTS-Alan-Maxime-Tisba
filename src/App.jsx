@@ -12,6 +12,7 @@ import Contact from "./pages/Contact.jsx"
 //===============PAGE DE TEST=================
 import Test from "./pages/Teste_form.jsx"
 import Recap from "./pages/Recap.jsx"
+import Teste_db from "./pages/dashboard/sections/Teste_db.jsx"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           element={<Dashboard_Entreprise />}
         />
 
+        <Route path="/teste/db" element={<Teste_db />} />
         <Route path="/teste" element={<Test />} />
         <Route path="/recap" element={<Recap />} />
       </Routes>
