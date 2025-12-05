@@ -14,13 +14,22 @@ def create_app():
 
     db.init_app(app)
 
-    from models import Entreprise, Evenement, SemaineType, Utilisateur, TypeUtilisateur, EventEmail, Creneau, Prestation, Reservation
+    
 
     with app.app_context():
+        from models import Entreprise, Evenement, SemaineType, Utilisateur, TypeUtilisateur, EventEmail, Creneau, Prestation, Reservation
         db.create_all()
+        import seed 
+        entreprise = Entreprise.query.get(1)
+        print(entreprise.adresse, entreprise.ville, entreprise.codePostal)
 
     
-    import seed 
+   
+
+   
+        
+    
+    
 
     # récupérer les informations du formulaire quand il POST sur l'endpoint /register_form
     @app.route("/register_form", methods=["POST"])
