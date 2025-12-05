@@ -1,8 +1,5 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from extension import db
 
-
-db = SQLAlchemy() 
 
 class Entreprise(db.Model):
     __tablename__ = "entreprise"
