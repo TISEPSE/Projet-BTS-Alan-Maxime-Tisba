@@ -99,7 +99,7 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "  Dépendances Node.js installées." -ForegroundColor Green
 
 Write-Host "`n[6/6] Démarrage de l'application (npm run dev:all)..." -ForegroundColor Yellow
-npm run dev:all
+npm run dev:win
 if ($LASTEXITCODE -ne 0) {
     Write-Host "`n  ERREUR: 'npm run dev:all' s'est terminé avec un code non nul." -ForegroundColor Red
     exit 1
