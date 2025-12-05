@@ -1,22 +1,40 @@
 from flask import Blueprint, request, jsonify, session, redirect, url_for
 from extension import cors, db
 from models import db, Utilisateur, TypeUtilisateur, Entreprise, Creneau, Prestation, Reservation, EventEmail, Evenement, SemaineType
-
+from datetime import datetime, date, timedelta
 
 pages_blueprint = Blueprint("pages", __name__)
 
 
 # récupérer les informations du formulaire quand il POST sur l'endpoint /register_form
-@pages_blueprint.route("/register_form", methods=["POST"])
-def register_form():
+@pages_blueprint.route("/register_form_user", methods=["POST"])
+def register_form_user():
     email = request.form.get("email")
     password = request.form.get("password")
     nom = request.form.get("nom")
-    print(
-        f"La page de Register à récupérer => Nom: {nom} Email: {email}, Password: {password}",
-        flush=True,
+    prenom = request.form.get("prenom")
+    dateNaissance = request.form.get("birthDate")
+    telephone = request.form.get("phone")
+    password = request.form.get("password")
+    confirmPassword = request.form.get("confirmPassword")
+
+    client = TypeUtilisateur.query.filter(TypeUtilisateur.role=="client").first()
+    id_type_client = client.idType
+
+    u1 = Utilisateur(
+        nom=nom,
+        prenom=prenom,
+        dateNaissance=dateNaissance,
+        email=email,
+        motDePasseHash=password,
+        telephone=telephone,
+        dateInscription=datetime.now(),
+        idTypeUtilisateur=id_type_client
     )
-    return "OK"
+    db.session.add(u1)
+    db.session.commit()
+
+    return jsonify({"message":"utilisateur ajouté","id":u1.idClient})
 
 
 # -------------------------------------------
@@ -32,7 +50,7 @@ def login_form():
 
 
 @pages_blueprint.route("/teste", methods=["POST"])
-def recap():
+def test():
     username = request.form.get("username")
     user = Utilisateur.query.filter(Utilisateur.nom == username).first()
     if user != None:

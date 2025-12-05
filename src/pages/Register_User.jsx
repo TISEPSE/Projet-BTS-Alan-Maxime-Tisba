@@ -31,9 +31,7 @@ export default function UserRegistrationForm() {
         </div>
 
         <div className="bg-white shadow p-4 py-6 sm:p-6 sm:rounded-lg text-left">
-          <form
-            className="space-y-5"
-          >
+          <form className="space-y-5" action="http://localhost:5000/register_form_user" method="POST">
             {/* Email */}
             <div className="flex flex-col items-start">
               <label className="font-medium block text-left">Adresse email</label>
@@ -52,7 +50,7 @@ export default function UserRegistrationForm() {
                 <label className="font-medium block text-left">Prénom</label>
                 <input
                   type="text"
-                  name="firstName"
+                  name="prenom"
                   required
                   className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-indigo-600 shadow-sm rounded-lg"
                   placeholder="Jean"
@@ -63,7 +61,7 @@ export default function UserRegistrationForm() {
                 <label className="font-medium block text-left">Nom</label>
                 <input
                   type="text"
-                  name="lastName"
+                  name="nom"
                   required
                   className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border border-gray-300 focus:border-indigo-600 shadow-sm rounded-lg"
                   placeholder="Dupont"
