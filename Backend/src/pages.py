@@ -27,6 +27,15 @@ def login_form():
     print(f"[LOGIN] Email: {email}  Password: {password}", flush=True)
     return jsonify({"email": email, "password": password})
 
+@pages_blueprint.route("/teste", methods=["POST"])
+def recap():
+    username = request.form.get("username")
+    utilisateurs = Utilisateur.query.all()
+    print(utilisateurs)
+
+    return
+
+
 
 
 # -------------------------------------------
