@@ -1,10 +1,4 @@
-import useFormSubmit from "../Hook/useForm";
-
 export default function Login() {
-  const { handleSubmit } = useFormSubmit(
-    "http://localhost:5000/login_form",
-    "/recap"
-  );
 
   return (
     <main className="w-full min-h-screen flex items-center justify-center bg-white">
@@ -15,7 +9,7 @@ export default function Login() {
           </h3>
         </div>
         <div className="bg-white shadow p-6 sm:rounded-lg">
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form className="space-y-5">
             <label htmlFor="name" className="block text-gray-700 font-medium mb-1">
               Nom / Prénom
             </label>
