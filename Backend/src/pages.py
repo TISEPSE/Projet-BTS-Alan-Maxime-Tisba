@@ -1,7 +1,17 @@
 from flask import Blueprint, request, jsonify
 from extension import cors, db
-from models import db, Utilisateur, TypeUtilisateur, Entreprise, Creneau, Prestation, Reservation, EventEmail, Evenement, SemaineType
-
+from models import (
+    db,
+    Utilisateur,
+    TypeUtilisateur,
+    Entreprise,
+    Creneau,
+    Prestation,
+    Reservation,
+    EventEmail,
+    Evenement,
+    SemaineType,
+)
 
 
 pages_blueprint = Blueprint("pages", __name__)
@@ -13,29 +23,31 @@ def register_form():
     email = request.form.get("email")
     password = request.form.get("password")
     nom = request.form.get("nom")
-    print(f"La page de Register à récupérer => Nom: {nom} Email: {email}, Password: {password}", flush=True)
+    print(
+        f"La page de Register à récupérer => Nom: {nom} Email: {email}, Password: {password}",
+        flush=True,
+    )
     return "OK"
+
 
 # -------------------------------------------
 # 1) LOGIN : renvoie un JSON propre
 # -------------------------------------------
 @pages_blueprint.route("/login_form", methods=["POST"])
 def login_form():
-    email    = request.form.get("email")
+    email = request.form.get("email")
     password = request.form.get("password")
 
     print(f"[LOGIN] Email: {email}  Password: {password}", flush=True)
     return jsonify({"email": email, "password": password})
 
+
 @pages_blueprint.route("/teste", methods=["POST"])
 def recap():
     username = request.form.get("username")
     utilisateurs = Utilisateur.query.all()
-    print(utilisateurs)
-
-    return
-
-
+    print(username)
+    return username
 
 
 # -------------------------------------------
